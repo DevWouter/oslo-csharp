@@ -17,7 +17,7 @@ namespace TournamentPlanner
                 worldTournament.AddPlayer("Robot " + i);
             }
 
-            Tournament regionalTournament = new Tournament(4);
+            Tournament regionalTournament = new Tournament();
             regionalTournament.Name = "Regional";
 
             worldTournament.IncreaseReward(1000000);

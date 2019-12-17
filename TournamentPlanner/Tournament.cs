@@ -14,7 +14,7 @@ namespace TournamentPlanner
 
         public string[] Players;
 
-        public Tournament(int maxPlayers)
+        public Tournament(int maxPlayers = 4)
         {
             OrgAccount = new BankAccount(5000);
             Players = new string[maxPlayers];
