@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace TournamentPlanner
 {
@@ -13,7 +12,7 @@ namespace TournamentPlanner
         public string Name;
         public BankAccount OrgAccount;
 
-        public List<string> Players = new List<string>();
+        public string[] Players = new string[8];
 
         public Tournament()
         {
@@ -22,12 +21,19 @@ namespace TournamentPlanner
 
         public void AddPlayer(string player)
         {
-            Players.Add(player);
+            for(int i = 0; i < 8; ++i)
+            {
+                if (Players[i] == null)
+                {
+                    Players[i] = player;
+                    return;
+                }
+            }
         }
 
         public void PrintPlayers()
         {
-            for(int i = 0; i< Players.Count; ++i)
+            for(int i = 0; i< 8; ++i)
             {
                 Console.WriteLine("{0} - {1}", i, Players[i]);
             }
