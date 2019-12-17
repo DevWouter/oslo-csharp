@@ -44,14 +44,17 @@ namespace TournamentPlanner
             Console.WriteLine("- Youtube {0}", youtubeScore);
             Console.WriteLine("- Facebook {0}", facebookScore);
             Console.WriteLine("- Combined {0}", youtubeScore + facebookScore);
+            Console.WriteLine("- Does Youtube score higher than Facebook? {0}", youtubeScore > facebookScore);
             Console.WriteLine();
 
-            youtubeScore += 10;
+            // Give 4 perfect 10's to youtube.
+            for (int i = 0; i < 4; ++i) youtubeScore += 10;
 
-            Console.WriteLine("After giving a 10 to Youtube...");
+            Console.WriteLine("After giving Youtube 4 times a perfect 10...");
             Console.WriteLine("- Youtube {0}", youtubeScore);
             Console.WriteLine("- Facebook {0}", facebookScore);
             Console.WriteLine("- Combined {0}", youtubeScore + facebookScore);
+            Console.WriteLine("- Does Youtube score higher than Facebook? {0}", youtubeScore > facebookScore);
         }
 
         private static void DemoStaticMethods()

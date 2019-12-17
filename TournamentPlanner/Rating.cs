@@ -38,6 +38,14 @@ namespace TournamentPlanner
             return new Rating(r1.TotalScore + r2.TotalScore, r1.NumberOfVotes + r2.NumberOfVotes);
         }
 
+        public static bool operator >(Rating p1, Rating p2)
+        {
+            return p1.TotalScore > p2.TotalScore;
+        }
 
+        public static bool operator <(Rating p1, Rating p2)
+        {
+            return p1.TotalScore < p2.TotalScore;
+        }
     }
 }
