@@ -13,8 +13,9 @@ namespace TournamentPlanner
 
             var wouter = new IndividualRival("Wouter");
             var rutger = new IndividualRival("Rutger");
+            var cheaters = new TeamRival("Cheaters", 10);
 
-            worldTournament.AddPlayers(wouter, rutger);
+            worldTournament.AddPlayers(wouter, rutger, cheaters);
 
             for (int i = 0; i < 100; ++i)
             {
