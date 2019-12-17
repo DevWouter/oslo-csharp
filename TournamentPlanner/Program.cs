@@ -28,7 +28,25 @@ namespace TournamentPlanner
 
             Console.WriteLine(regionalTournament);
 
+            DemoStaticMethods();
+
             Console.ReadLine();
+        }
+
+        private static void DemoStaticMethods()
+        {
+            int citySpots = 10;
+            Tournament.SetRequiredPlayers(100);
+            Tournament cityTournament = new Tournament(citySpots);
+
+            Console.WriteLine();
+            Console.WriteLine("Demo: Static Methods");
+            Console.WriteLine("---------------------------------------------");
+            Console.WriteLine(
+                "City Tournament has {0} spots even though we asked {1}",
+                cityTournament.Players.Length,
+                citySpots
+                );
         }
     }
 }

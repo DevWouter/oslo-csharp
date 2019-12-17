@@ -4,6 +4,8 @@ namespace TournamentPlanner
 {
     class Tournament
     {
+        private static int MinimalAmountOfPlayers = 0;
+
         public int Reward { get; private set; }
 
         public string Name;
@@ -13,6 +15,8 @@ namespace TournamentPlanner
 
         public Tournament(int maxPlayers = 4, int initialFunds = 5000)
         {
+            // Increase the amount of players if tournament is too small
+            maxPlayers = Math.Max(MinimalAmountOfPlayers, maxPlayers);
             OrgAccount = new BankAccount(initialFunds);
             Players = new string[maxPlayers];
         }
@@ -52,6 +56,11 @@ namespace TournamentPlanner
                 "Name: " + Name +
                 " Reward: " + Reward +
                 " Balance: " + OrgAccount.Balance;
+        }
+
+        public static void SetRequiredPlayers(int playerCount)
+        {
+            MinimalAmountOfPlayers = playerCount;
         }
     }
 }
