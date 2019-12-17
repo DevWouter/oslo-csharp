@@ -6,7 +6,7 @@ namespace TournamentPlanner
     {
         static void Main(string[] args)
         {
-            Tournament worldTournament = new Tournament();
+            Tournament worldTournament = new Tournament(8);
             worldTournament.Name = "World";
             worldTournament.OrgAccount.Balance = 2000000;
             worldTournament.AddPlayer("Wouter");
@@ -17,7 +17,7 @@ namespace TournamentPlanner
                 worldTournament.AddPlayer("Robot " + i);
             }
 
-            Tournament regionalTournament = new Tournament();
+            Tournament regionalTournament = new Tournament(4);
             regionalTournament.Name = "Regional";
 
             worldTournament.IncreaseReward(1000000);

@@ -12,16 +12,17 @@ namespace TournamentPlanner
         public string Name;
         public BankAccount OrgAccount;
 
-        public string[] Players = new string[8];
+        public string[] Players;
 
-        public Tournament()
+        public Tournament(int maxPlayers)
         {
             OrgAccount = new BankAccount(5000);
+            Players = new string[maxPlayers];
         }
 
         public void AddPlayer(string player)
         {
-            for(int i = 0; i < 8; ++i)
+            for(int i = 0; i < Players.Length; ++i)
             {
                 if (Players[i] == null)
                 {
@@ -33,7 +34,7 @@ namespace TournamentPlanner
 
         public void PrintPlayers()
         {
-            for(int i = 0; i< 8; ++i)
+            for(int i = 0; i< Players.Length; ++i)
             {
                 Console.WriteLine("{0} - {1}", i, Players[i]);
             }
