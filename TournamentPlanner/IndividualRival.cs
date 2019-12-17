@@ -15,5 +15,10 @@
         {
             Name = name;
         }
+
+        public override string ToString()
+        {
+            return DisplayName + " (Individual)";
+        }
     }
 }
