@@ -4,10 +4,7 @@ namespace TournamentPlanner
 {
     class Tournament
     {
-        public int Reward { 
-            get; 
-            private set; 
-        }
+        public int Reward { get; private set; }
 
         public string Name;
         public BankAccount OrgAccount;
@@ -22,7 +19,7 @@ namespace TournamentPlanner
 
         public void AddPlayer(string player)
         {
-            for(int i = 0; i < Players.Length; ++i)
+            for (int i = 0; i < Players.Length; ++i)
             {
                 if (Players[i] == null)
                 {
@@ -34,7 +31,7 @@ namespace TournamentPlanner
 
         public void PrintPlayers()
         {
-            for(int i = 0; i< Players.Length; ++i)
+            for (int i = 0; i < Players.Length; ++i)
             {
                 Console.WriteLine("{0} - {1}", i, Players[i]);
             }
@@ -51,9 +48,9 @@ namespace TournamentPlanner
 
         public override string ToString()
         {
-            return 
-                "Name: " + Name + 
-                " Reward: " + Reward + 
+            return
+                "Name: " + Name +
+                " Reward: " + Reward +
                 " Balance: " + OrgAccount.Balance;
         }
     }
