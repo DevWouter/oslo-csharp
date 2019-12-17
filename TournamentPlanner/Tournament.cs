@@ -23,6 +23,13 @@ namespace TournamentPlanner
 
         private void AddPlayer(IRival player)
         {
+            bool isIndividual = player is IndividualRival;
+            if (!isIndividual)
+            {
+                // This player is not an individual
+                return;
+            }
+
             for (int i = 0; i < Players.Length; ++i)
             {
                 if (Players[i] == null)
