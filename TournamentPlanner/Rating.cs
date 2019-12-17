@@ -8,8 +8,8 @@ namespace TournamentPlanner
 {
     public class Rating
     {
-        private int TotalScore = 0;
-        private int NumberOfVotes = 0;
+        public int TotalScore { get; private set; }
+        public int NumberOfVotes { get; private set; }
 
         public Rating(int initialScore = 0, int initialVotes = 0)
         {
@@ -27,7 +27,17 @@ namespace TournamentPlanner
             return string.Format("score {0} with {1} votes (avg: {2})", TotalScore, NumberOfVotes, AverageScore);
         }
 
-        
+        // Operators.
+        public static Rating operator +(Rating rating, int score)
+        {
+            return new Rating(rating.TotalScore + score, rating.NumberOfVotes + 1);
+        }
+
+        public static Rating operator +(Rating r1, Rating r2)
+        {
+            return new Rating(r1.TotalScore + r2.TotalScore, r1.NumberOfVotes + r2.NumberOfVotes);
+        }
+
 
     }
 }

@@ -40,9 +40,18 @@ namespace TournamentPlanner
             Console.WriteLine("Demo: Operator Overloading");
             Console.WriteLine("---------------------------------------------");
             Rating youtubeScore = new Rating();
-            Rating facebookScore = new Rating(20, 3);
-            Console.WriteLine("Youtube {0}", youtubeScore);
-            Console.WriteLine("Facebook {0}", facebookScore);
+            Rating facebookScore = new Rating(18, 3);
+            Console.WriteLine("- Youtube {0}", youtubeScore);
+            Console.WriteLine("- Facebook {0}", facebookScore);
+            Console.WriteLine("- Combined {0}", youtubeScore + facebookScore);
+            Console.WriteLine();
+
+            youtubeScore += 10;
+
+            Console.WriteLine("After giving a 10 to Youtube...");
+            Console.WriteLine("- Youtube {0}", youtubeScore);
+            Console.WriteLine("- Facebook {0}", facebookScore);
+            Console.WriteLine("- Combined {0}", youtubeScore + facebookScore);
         }
 
         private static void DemoStaticMethods()
