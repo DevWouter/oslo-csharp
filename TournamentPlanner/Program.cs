@@ -6,6 +6,7 @@ namespace TournamentPlanner
     {
         static void Main(string[] args)
         {
+
             Tournament worldTournament = new Tournament(8);
             worldTournament.Name = "World";
             worldTournament.OrgAccount.Balance = 2000000;
@@ -29,8 +30,19 @@ namespace TournamentPlanner
             Console.WriteLine(regionalTournament);
 
             DemoStaticMethods();
-
+            DemoOperatorOverloading();
             Console.ReadLine();
+        }
+
+        private static void DemoOperatorOverloading()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Demo: Operator Overloading");
+            Console.WriteLine("---------------------------------------------");
+            Rating youtubeScore = new Rating();
+            Rating facebookScore = new Rating(20, 3);
+            Console.WriteLine("Youtube {0}", youtubeScore);
+            Console.WriteLine("Facebook {0}", facebookScore);
         }
 
         private static void DemoStaticMethods()
