@@ -8,6 +8,8 @@ namespace TournamentPlanner
         {
 
             Tournament worldTournament = new Tournament(8);
+            worldTournament.InvalidSignup += OnInvalidSignup;
+
             worldTournament.Name = "World";
             worldTournament.OrgAccount.Balance = 2000000;
 
@@ -37,6 +39,13 @@ namespace TournamentPlanner
             DemoStaticMethods();
             DemoOperatorOverloading();
             Console.ReadLine();
+        }
+
+        private static void OnInvalidSignup(object sender, InvalidSignupEventArgs e)
+        {
+            Console.WriteLine("!!! Unable to process signup of {0} for {1} tournament",
+                e.Player.DisplayName,
+                e.Tournament.Name);
         }
 
         private static void DemoOperatorOverloading()

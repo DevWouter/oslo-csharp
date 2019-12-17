@@ -5,6 +5,7 @@ namespace TournamentPlanner
     class Tournament
     {
         private static int MinimalAmountOfPlayers = 0;
+        public event EventHandler<InvalidSignupEventArgs> InvalidSignup;
 
         public int Reward { get; private set; }
 
@@ -27,6 +28,12 @@ namespace TournamentPlanner
             if (!isIndividual)
             {
                 // This player is not an individual
+                InvalidSignupEventArgs e = new InvalidSignupEventArgs(player, this);
+                if (InvalidSignup != null)
+                {
+                    InvalidSignup.Invoke(this, e);
+                }
+
                 return;
             }
 
