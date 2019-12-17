@@ -10,11 +10,15 @@ namespace TournamentPlanner
             Tournament worldTournament = new Tournament(8);
             worldTournament.Name = "World";
             worldTournament.OrgAccount.Balance = 2000000;
-            worldTournament.AddPlayers("Wouter", "Rutger");
+
+            var wouter = new IndividualRival("Wouter");
+            var rutger = new IndividualRival("Rutger");
+
+            worldTournament.AddPlayers(wouter, rutger);
 
             for (int i = 0; i < 100; ++i)
             {
-                worldTournament.AddPlayers("Robot " + i);
+                worldTournament.AddPlayers(new IndividualRival("Robot " + i));
             }
 
             Tournament regionalTournament = new Tournament(initialFunds: 7500);

@@ -11,17 +11,17 @@ namespace TournamentPlanner
         public string Name;
         public BankAccount OrgAccount;
 
-        public string[] Players;
+        public IRival[] Players;
 
         public Tournament(int maxPlayers = 4, int initialFunds = 5000)
         {
             // Increase the amount of players if tournament is too small
             maxPlayers = Math.Max(MinimalAmountOfPlayers, maxPlayers);
             OrgAccount = new BankAccount(initialFunds);
-            Players = new string[maxPlayers];
+            Players = new IRival[maxPlayers];
         }
 
-        private void AddPlayer(string player)
+        private void AddPlayer(IRival player)
         {
             for (int i = 0; i < Players.Length; ++i)
             {
@@ -33,7 +33,7 @@ namespace TournamentPlanner
             }
         }
 
-        public void AddPlayers(params string[] newPlayers)
+        public void AddPlayers(params IRival[] newPlayers)
         {
             foreach (var player in newPlayers)
             {
