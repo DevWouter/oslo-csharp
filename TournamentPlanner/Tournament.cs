@@ -21,7 +21,7 @@ namespace TournamentPlanner
             Players = new IRival[maxPlayers];
         }
 
-        private void AddPlayer(IRival player)
+        protected virtual void AddPlayer(IRival player)
         {
             bool isIndividual = player is IndividualRival;
             if (!isIndividual)
