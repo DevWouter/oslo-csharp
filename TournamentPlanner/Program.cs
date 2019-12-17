@@ -22,8 +22,8 @@ namespace TournamentPlanner
                 worldTournament.AddPlayers(new IndividualRival("Robot " + i));
             }
 
-            Tournament regionalTournament = new Tournament(initialFunds: 7500);
-            regionalTournament.Name = "Regional";
+            Tournament regionalTournament = new TeamTournament("Regional");
+            regionalTournament.AddPlayers(wouter, rutger, cheaters);
 
             worldTournament.IncreaseReward(1000000);
             regionalTournament.IncreaseReward(1000);
@@ -32,6 +32,7 @@ namespace TournamentPlanner
             worldTournament.PrintPlayers();
 
             Console.WriteLine(regionalTournament);
+            regionalTournament.PrintPlayers();
 
             DemoStaticMethods();
             DemoOperatorOverloading();
