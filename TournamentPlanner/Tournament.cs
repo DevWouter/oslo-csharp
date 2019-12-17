@@ -21,7 +21,7 @@ namespace TournamentPlanner
             Players = new string[maxPlayers];
         }
 
-        public void AddPlayer(string player)
+        private void AddPlayer(string player)
         {
             for (int i = 0; i < Players.Length; ++i)
             {
@@ -30,6 +30,14 @@ namespace TournamentPlanner
                     Players[i] = player;
                     return;
                 }
+            }
+        }
+
+        public void AddPlayers(params string[] newPlayers)
+        {
+            foreach (var player in newPlayers)
+            {
+                AddPlayer(player);
             }
         }
 
