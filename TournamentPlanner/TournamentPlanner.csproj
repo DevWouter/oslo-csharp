@@ -44,8 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
+    <Compile Include="IndividualRival.cs" />
+    <Compile Include="IRival.cs" />
+    <Compile Include="InvalidSignupEventArgs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rating.cs" />
+    <Compile Include="TeamRival.cs" />
+    <Compile Include="TeamTournament.cs" />
     <Compile Include="Tournament.cs" />
   </ItemGroup>
   <ItemGroup>

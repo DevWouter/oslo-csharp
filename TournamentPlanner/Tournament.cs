@@ -4,24 +4,40 @@ namespace TournamentPlanner
 {
     class Tournament
     {
-        public int Reward { 
-            get; 
-            private set; 
-        }
+        private static int MinimalAmountOfPlayers = 0;
+        public event EventHandler<InvalidSignupEventArgs> InvalidSignup;
+
+        public int Reward { get; private set; }
 
         public string Name;
         public BankAccount OrgAccount;
 
-        public string[] Players = new string[8];
+        public IRival[] Players;
 
-        public Tournament()
+        public Tournament(int maxPlayers = 4, int initialFunds = 5000)
         {
-            OrgAccount = new BankAccount(5000);
+            // Increase the amount of players if tournament is too small
+            maxPlayers = Math.Max(MinimalAmountOfPlayers, maxPlayers);
+            OrgAccount = new BankAccount(initialFunds);
+            Players = new IRival[maxPlayers];
         }
 
-        public void AddPlayer(string player)
+        protected virtual void AddPlayer(IRival player)
         {
-            for(int i = 0; i < 8; ++i)
+            bool isIndividual = player is IndividualRival;
+            if (!isIndividual)
+            {
+                // This player is not an individual
+                InvalidSignupEventArgs e = new InvalidSignupEventArgs(player, this);
+                if (InvalidSignup != null)
+                {
+                    InvalidSignup.Invoke(this, e);
+                }
+
+                return;
+            }
+
+            for (int i = 0; i < Players.Length; ++i)
             {
                 if (Players[i] == null)
                 {
@@ -31,9 +47,17 @@ namespace TournamentPlanner
             }
         }
 
+        public void AddPlayers(params IRival[] newPlayers)
+        {
+            foreach (var player in newPlayers)
+            {
+                AddPlayer(player);
+            }
+        }
+
         public void PrintPlayers()
         {
-            for(int i = 0; i< 8; ++i)
+            for (int i = 0; i < Players.Length; ++i)
             {
                 Console.WriteLine("{0} - {1}", i, Players[i]);
             }
@@ -50,10 +74,15 @@ namespace TournamentPlanner
 
         public override string ToString()
         {
-            return 
-                "Name: " + Name + 
-                " Reward: " + Reward + 
+            return
+                "Name: " + Name +
+                " Reward: " + Reward +
                 " Balance: " + OrgAccount.Balance;
+        }
+
+        public static void SetRequiredPlayers(int playerCount)
+        {
+            MinimalAmountOfPlayers = playerCount;
         }
     }
 }
